@@ -3,6 +3,11 @@ import Image from "next/image";
 import GitHubIcon from "../../../public/assets/icons/github.svg";
 import LinkedinIcon from "../../../public/assets/icons/linkedin.svg";
 import EmailIcon from "../../../public/assets/icons/email.svg";
+import DownloadIcon from "../../../public/assets/icons/download_rounded.svg";
+import SwirlArrow from "../../../public/assets/vectors/swirl_arrow.svg";
+
+import "../../app/globals.css";
+import ChatBubble from "../bubbles/ChatBubble";
 
 const ShortProfile = () => {
   return (
@@ -20,8 +25,12 @@ const ShortProfile = () => {
             className="px-12 flex flex-col items-center"
           >
             <div id="profile__picture" className="bg-blizblue-700 py-8">
-              <div className="flex items-center justify-center h-20 w-20 rounded-full bg-transparent border border-white">
-                <img className="h-16 w-16 rounded-full bg-illusion-300"></img>
+              <div className="flex items-center justify-center h-24 w-24 rounded-full bg-transparent border border-white">
+                <div className="relative h-20 w-20 rounded-full bg-illusion-300">
+                  <div className="absolute -right-16 -top-3">
+                    <ChatBubble text="Hi..!" />
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -39,16 +48,52 @@ const ShortProfile = () => {
               <b>Gadjah Mada University</b>.
             </div>
 
-            <div id="profile__social">
+            <div id="profile__social" className="py-4 flex gap-2">
               <Image
                 src={GitHubIcon}
                 alt="Raisa's GitHub"
                 className="w-10 h-10"
               />
+              <Image
+                src={LinkedinIcon}
+                alt="Raisa's LinkedIn"
+                className="w-10 h-10"
+              />
+              <Image
+                src={EmailIcon}
+                alt="Raisa's Email"
+                className="w-10 h-10"
+              />
             </div>
           </div>
 
-          <div id="download__cv">cv</div>
+          <div
+            id="download__cv"
+            className="absolute bottom-28 right-10 flex gap-2"
+          >
+            <p className="flex items-center mr-2 text-right">
+              Download <br />
+              my CV
+            </p>
+
+            <div className="flex items-center justify-center w-24 h-24 rounded-full border border-white bg-transparent">
+              <div className="flex items-center justify-center w-16 h-16 rounded-full border border-white bg-transparent">
+                <Image
+                  src={DownloadIcon}
+                  alt="Raisa's CV"
+                  className="w-10 h-10"
+                />
+              </div>
+            </div>
+
+            <div className="flex items-end">
+              <Image
+                src={SwirlArrow}
+                alt="Raisa's CV"
+                className="w-[40px] h-[70px]"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

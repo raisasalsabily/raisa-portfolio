@@ -10,6 +10,10 @@ export default function Home() {
       {/* ----------------- short profile end -----------------*/}
 
       {/* ----------------- skills start -----------------*/}
+      <div>
+        SKILSSS SKILSSS SKILSSS SKILSSS SKILSSS SKILSSS SKILSSS SKILSSS
+        SKILSSSSKILSSSSKILSSSSKILSSSSKILSSS
+      </div>
       {/* ----------------- skills end -----------------*/}
     </main>
   );
