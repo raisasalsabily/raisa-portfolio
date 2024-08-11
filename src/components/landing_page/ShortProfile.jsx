@@ -33,80 +33,89 @@ const ShortProfile = () => {
   return (
     <div
       id="shortprof__container"
-      className="min-h-screen w-full bg-blizblue-100 text-white"
+      className="relative min-h-screen w-full text-white"
     >
-      <div id="shortprof__bg" className="bg-blue-200">
-        <div
-          id="shortprof__trans__layer"
-          className="bg-black bg-opacity-40 w-full h-screen"
-        >
-          <div
-            id="content__container"
-            className="px-12 flex flex-col items-center"
-          >
-            <div id="profile__picture" className="pt-10 pb-8 bg-red-300">
-              <ProfilePic>
-                <ChatBubble strings={["Hi..!", "Keep scrolling!"]} />
-              </ProfilePic>
-            </div>
-
-            <div
-              id="profile__title"
-              className="font-prozaLibre text-h-md font-bold py-2"
-            >
-              Hi, my name is <span className="color-changing-text">Raisa!</span>
-            </div>
-
-            <div id="profile__desc" className="text-center leading-7 py-2">
-              An enthusiastic <b>web developer</b>, focusing on{" "}
-              <b>front-end development</b>. I can do <b>back-end</b> too tho 😉
-              I am a fresh graduate in <b>Information Technology</b> from{" "}
-              <b>Gadjah Mada University</b>.
-            </div>
-
-            <div id="profile__social" className="py-4 flex gap-2">
-              <Image
-                src={GitHubIcon}
-                alt="Raisa's GitHub"
-                className="w-10 h-10"
-              />
-              <Image
-                src={LinkedinIcon}
-                alt="Raisa's LinkedIn"
-                className="w-10 h-10"
-              />
-              <Image
-                src={EmailIcon}
-                alt="Raisa's Email"
-                className="w-10 h-10"
-              />
-            </div>
-          </div>
-
-          {/* ------- download cv start ------- */}
-          <div
-            id="download__cv"
-            className="absolute bottom-28 right-10 flex gap-2"
-          >
-            <p className="flex items-center mr-2 text-right">
-              Download <br />
-              my CV
-            </p>
-
-            <div>
-              <DownloadBtn />
-            </div>
-
-            <div className="flex items-end">
-              <Image
-                src={SwirlArrow}
-                alt="Raisa's CV"
-                className="w-[40px] h-[70px]"
-              />
-            </div>
-          </div>
-          {/* ------- download cv end ------- */}
+      {/* background start */}
+      <div
+        id="shortprof__bg"
+        className="w-[100vw] h-[100vh] top-0 left-0 absolute z-0 overflow-hidden gradient-bg"
+      >
+        <div className="gradients-container">
+          <div className="g1"></div>
+          <div className="g2"></div>
+          <div className="g3"></div>
+          <div className="g4"></div>
+          <div className="g5"></div>
         </div>
+      </div>
+      {/* background end */}
+
+      <div
+        id="shortprof__content"
+        className="relative z-20 bg-black bg-opacity-0 w-full h-screen"
+      >
+        <div
+          id="content__container"
+          className="px-12 flex flex-col items-center"
+        >
+          <div id="profile__picture" className="pt-10 pb-8 bg-red-300">
+            <ProfilePic>
+              <ChatBubble strings={["Hi..!", "Keep scrolling!"]} />
+            </ProfilePic>
+          </div>
+
+          <div
+            id="profile__title"
+            className="font-prozaLibre text-h-md font-bold py-2"
+          >
+            Hi, my name is <span className="color-changing-text">Raisa!</span>
+          </div>
+
+          <div id="profile__desc" className="text-center leading-7 py-2">
+            An enthusiastic <b>web developer</b>, focusing on{" "}
+            <b>front-end development</b>. I can do <b>back-end</b> too tho 😉 I
+            am a fresh graduate in <b>Information Technology</b> from{" "}
+            <b>Gadjah Mada University</b>.
+          </div>
+
+          <div id="profile__social" className="py-4 flex gap-2">
+            <Image
+              src={GitHubIcon}
+              alt="Raisa's GitHub"
+              className="w-10 h-10"
+            />
+            <Image
+              src={LinkedinIcon}
+              alt="Raisa's LinkedIn"
+              className="w-10 h-10"
+            />
+            <Image src={EmailIcon} alt="Raisa's Email" className="w-10 h-10" />
+          </div>
+        </div>
+
+        {/* ------- download cv start ------- */}
+        <div
+          id="download__cv"
+          className="absolute bottom-28 right-10 flex gap-2"
+        >
+          <p className="flex items-center mr-2 text-right">
+            Download <br />
+            my CV
+          </p>
+
+          <div>
+            <DownloadBtn />
+          </div>
+
+          <div className="flex items-end">
+            <Image
+              src={SwirlArrow}
+              alt="Raisa's CV"
+              className="w-[40px] h-[70px]"
+            />
+          </div>
+        </div>
+        {/* ------- download cv end ------- */}
       </div>
     </div>
   );

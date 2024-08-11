@@ -1,3 +1,16 @@
+:root {
+  --color-bg1: #51356e;
+  --color-bg2: #8e5ebf;
+  --color1: 34, 157, 184;
+  --color2: #ffa5d8;
+  --color3: #be9ddf;
+  --color4: #b1e8f0;
+  --color5: #fecce9;
+  --color-interactive: #eadff5;
+  --circle-size: 80%;
+  --blending: hard-light;
+}
+
 @keyframes colorChange {
   0% {
     color: #92ddea;
@@ -12,4 +25,36 @@
 
 .color-changing-text {
   animation: colorChange 5s infinite;
+}
+
+.gradient-bg {
+  background: linear-gradient(
+    126deg,
+    var(--color-bg1) 37%,
+    var(--color-bg2) 65%
+  );
+}
+
+.gradients-container {
+  width: 100%;
+  height: 100%;
+}
+
+.g1 {
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color1), 0.8) 0%,
+      rgba(var(--color1), 0) 50%
+    )
+    no-repeat;
+
+  mix-blend-mode: var(--blending);
+
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  opacity: 1;
+  filter: blur(10px);
 }
