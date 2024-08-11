@@ -1,15 +1,35 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import GitHubIcon from "../../../public/assets/icons/github.svg";
 import LinkedinIcon from "../../../public/assets/icons/linkedin.svg";
 import EmailIcon from "../../../public/assets/icons/email.svg";
-import DownloadIcon from "../../../public/assets/icons/download_rounded.svg";
 import SwirlArrow from "../../../public/assets/vectors/swirl_arrow.svg";
-
-import "../../app/globals.css";
 import ChatBubble from "../bubbles/ChatBubble";
+import ProfilePic from "../profile/ProfilePic";
+import DownloadBtn from "../buttons/DownloadBtn";
+import "./short-profile.css";
+
+const colors = ["#92ddea", "#ffa5d8"];
+const strings = ["Raisa", "Salsabil"];
 
 const ShortProfile = () => {
+  const [colorIndex, setColorIndex] = useState(0);
+
+  const getNextColor = useCallback(() => {
+    setColorIndex((prevIndex) => (prevIndex + 1) % colors.length);
+  }, []);
+
+  useEffect(() => {
+    // Ensure that the color changes only after typing is complete
+    const interval = setInterval(() => {
+      getNextColor();
+    }, 5000); // Adjust time to match the pause duration
+
+    return () => clearInterval(interval);
+  }, [getNextColor]);
+
   return (
     <div
       id="shortprof__container"
@@ -24,21 +44,17 @@ const ShortProfile = () => {
             id="content__container"
             className="px-12 flex flex-col items-center"
           >
-            <div id="profile__picture" className="bg-blizblue-700 py-8">
-              <div className="flex items-center justify-center h-24 w-24 rounded-full bg-transparent border border-white">
-                <div className="relative h-20 w-20 rounded-full bg-illusion-300">
-                  <div className="absolute -right-16 -top-3">
-                    <ChatBubble text="Hi..!" />
-                  </div>
-                </div>
-              </div>
+            <div id="profile__picture" className="pt-10 pb-8 bg-red-300">
+              <ProfilePic>
+                <ChatBubble strings={["Hi..!", "Keep scrolling!"]} />
+              </ProfilePic>
             </div>
 
             <div
               id="profile__title"
               className="font-prozaLibre text-h-md font-bold py-2"
             >
-              Hi, my name is Raisa!
+              Hi, my name is <span className="color-changing-text">Raisa!</span>
             </div>
 
             <div id="profile__desc" className="text-center leading-7 py-2">
@@ -67,6 +83,7 @@ const ShortProfile = () => {
             </div>
           </div>
 
+          {/* ------- download cv start ------- */}
           <div
             id="download__cv"
             className="absolute bottom-28 right-10 flex gap-2"
@@ -76,14 +93,8 @@ const ShortProfile = () => {
               my CV
             </p>
 
-            <div className="flex items-center justify-center w-24 h-24 rounded-full border border-white bg-transparent">
-              <div className="flex items-center justify-center w-16 h-16 rounded-full border border-white bg-transparent">
-                <Image
-                  src={DownloadIcon}
-                  alt="Raisa's CV"
-                  className="w-10 h-10"
-                />
-              </div>
+            <div>
+              <DownloadBtn />
             </div>
 
             <div className="flex items-end">
@@ -94,6 +105,7 @@ const ShortProfile = () => {
               />
             </div>
           </div>
+          {/* ------- download cv end ------- */}
         </div>
       </div>
     </div>

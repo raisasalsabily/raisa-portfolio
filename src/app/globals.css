@@ -3,7 +3,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.clip-chat-bubble {
-  clip-path: polygon(53% 0, 100% 0, 100% 88%, 0% 100%);
-}
