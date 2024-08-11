@@ -136,32 +136,53 @@ const ShortProfile = () => {
             </div>
 
             <div id="profile__social" className="py-4 flex gap-2">
-              <Image
-                src={GitHubIcon}
-                alt="Raisa's GitHub"
-                className="w-10 lg:w-12 h-10 lg:h-12"
-              />
-              <Image
-                src={LinkedinIcon}
-                alt="Raisa's LinkedIn"
-                className="w-10 lg:w-12 h-10 lg:h-12"
-              />
-              <Image
-                src={EmailIcon}
-                alt="Raisa's Email"
-                className="w-10 lg:w-12 h-10 lg:h-12"
-              />
+              <a
+                href="https://github.com/raisasalsabily"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src={GitHubIcon}
+                  alt="Raisa's GitHub"
+                  className="w-10 lg:w-12 h-10 lg:h-12 hover:cursor-pointer"
+                />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/raisa-salsabil/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src={LinkedinIcon}
+                  alt="Raisa's LinkedIn"
+                  className="w-10 lg:w-12 h-10 lg:h-12 hover:cursor-pointer"
+                />
+              </a>
+
+              <a
+                href="mailto:raisa.salsabil@mail.ugm.ac.id"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src={EmailIcon}
+                  alt="Raisa's Email"
+                  className="w-10 lg:w-12 h-10 lg:h-12 hover:cursor-pointer"
+                />
+              </a>
             </div>
           </div>
 
           {/* ------- download cv start ------- */}
           <div
             id="download__cv"
-            className="flex gap-2 absolute bottom-20 right-10 lg:relative lg:bottom-auto lg:right-auto lg:flex-row lg:justify-end lg:gap-2"
+            className="flex gap-2 absolute bottom-20 right-6 lg:relative lg:bottom-auto lg:right-auto lg:flex-row lg:justify-end lg:gap-2"
           >
-            <p className="flex items-center mr-2 text-right">
-              Download <br />
-              my CV
+            <p className="flex items-center mr-2 text-right lg:text-b-xl">
+              Download my
+              <br />
+              full projects
             </p>
 
             <div>
