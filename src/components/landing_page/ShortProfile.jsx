@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import GitHubIcon from "../../../public/assets/icons/github.svg";
 import LinkedinIcon from "../../../public/assets/icons/linkedin.svg";
@@ -30,35 +30,88 @@ const ShortProfile = () => {
     return () => clearInterval(interval);
   }, [getNextColor]);
 
+  useEffect(() => {
+    const interBubble = document.querySelector(".interactive");
+    let curX = 0;
+    let curY = 0;
+    let tgX = 0;
+    let tgY = 0;
+
+    function move() {
+      curX += (tgX - curX) / 20;
+      curY += (tgY - curY) / 20;
+      if (interBubble) {
+        interBubble.style.transform = `translate(${Math.round(
+          curX
+        )}px, ${Math.round(curY)}px)`;
+      }
+      requestAnimationFrame(() => {
+        move();
+      });
+    }
+
+    function handleMouseMove(event) {
+      tgX = event.clientX;
+      tgY = event.clientY;
+    }
+
+    document.addEventListener("mousemove", handleMouseMove);
+    move();
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
     <div
       id="shortprof__container"
-      className="relative min-h-screen w-full text-white"
+      className="relative max-h-[100vh] max-w-[100vw] text-white"
     >
       {/* background start */}
       <div
         id="shortprof__bg"
-        className="w-[100vw] h-[100vh] top-0 left-0 absolute z-0 overflow-hidden gradient-bg"
+        className="w-full h-full top-0 left-0 absolute z-0 overflow-hidden gradient-bg"
       >
+        <svg xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="goo">
+              <feGaussianBlur
+                in="SourceGraphic"
+                stdDeviation="10"
+                result="blur"
+              />
+              <feColorMatrix
+                in="blur"
+                mode="matrix"
+                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+                result="goo"
+              />
+              <feBlend in="SourceGraphic" in2="goo" />
+            </filter>
+          </defs>
+        </svg>
+
         <div className="gradients-container">
           <div className="g1"></div>
           <div className="g2"></div>
           <div className="g3"></div>
           <div className="g4"></div>
           <div className="g5"></div>
+          <div className="interactive"></div>
         </div>
       </div>
       {/* background end */}
 
       <div
         id="shortprof__content"
-        className="relative z-20 bg-black bg-opacity-0 w-full h-screen"
+        className="relative z-20 bg-black bg-opacity-30 w-full h-screen"
       >
         <div
           id="content__container"
           className="px-12 flex flex-col items-center"
         >
-          <div id="profile__picture" className="pt-10 pb-8 bg-red-300">
+          <div id="profile__picture" className="pt-10 pb-8">
             <ProfilePic>
               <ChatBubble strings={["Hi..!", "Keep scrolling!"]} />
             </ProfilePic>
@@ -111,7 +164,7 @@ const ShortProfile = () => {
             <Image
               src={SwirlArrow}
               alt="Raisa's CV"
-              className="w-[40px] h-[70px]"
+              className="w-[40px] h-[70px] swirl-arrow"
             />
           </div>
         </div>

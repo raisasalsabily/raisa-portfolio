@@ -1,12 +1,12 @@
 :root {
   --color-bg1: #51356e;
   --color-bg2: #8e5ebf;
-  --color1: 34, 157, 184;
-  --color2: #ffa5d8;
-  --color3: #be9ddf;
-  --color4: #b1e8f0;
-  --color5: #fecce9;
-  --color-interactive: #eadff5;
+  --color1: 34, 157, 184; /*biru med - #229db8 */
+  --color2: 146, 221, 234; /*biru muda - #92ddea*/
+  --color3: 248, 60, 157; /*pink med - #f83c9d*/
+  --color4: 255, 165, 216; /*pink muda - #ffa5d8 */
+  --color5: 190, 157, 223; /*ungu muda - #be9ddf */
+  --color-interactive: 255, 165, 216; /*pink muda - #ffa5d8 */
   --circle-size: 80%;
   --blending: hard-light;
 }
@@ -27,6 +27,42 @@
   animation: colorChange 5s infinite;
 }
 
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+}
+
 .gradient-bg {
   background: linear-gradient(
     126deg,
@@ -36,8 +72,13 @@
 }
 
 .gradients-container {
+  filter: url(#goo) blur(40px);
   width: 100%;
   height: 100%;
+}
+
+svg {
+  display: none;
 }
 
 .g1 {
@@ -57,4 +98,158 @@
   left: calc(50% - var(--circle-size) / 2);
   opacity: 1;
   filter: blur(10px);
+
+  transform-origin: center center;
+  animation: moveVertical 30s ease infinite;
+}
+
+.g2 {
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color2), 0.8) 0%,
+      rgba(var(--color2), 0) 50%
+    )
+    no-repeat;
+
+  mix-blend-mode: var(--blending);
+
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  opacity: 1;
+  filter: blur(10px);
+
+  transform-origin: calc(50% - 400px);
+  animation: moveInCircle 20s reverse infinite;
+}
+
+.g3 {
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color3), 0.8) 0%,
+      rgba(var(--color3), 0) 50%
+    )
+    no-repeat;
+
+  mix-blend-mode: var(--blending);
+
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2 + 200px);
+  left: calc(50% - var(--circle-size) / 2 - 500px);
+  opacity: 1;
+  filter: blur(10px);
+
+  transform-origin: calc(50% + 400px);
+  animation: moveInCircle 40s linear infinite;
+}
+
+.g4 {
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color4), 0.8) 0%,
+      rgba(var(--color4), 0) 50%
+    )
+    no-repeat;
+
+  mix-blend-mode: var(--blending);
+
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  opacity: 1;
+  filter: blur(10px);
+
+  transform-origin: calc(50% - 200px);
+  animation: moveHorizontal 40s ease infinite;
+}
+
+.g5 {
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color5), 0.8) 0%,
+      rgba(var(--color5), 0) 50%
+    )
+    no-repeat;
+
+  mix-blend-mode: var(--blending);
+
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  opacity: 1;
+  filter: blur(10px);
+
+  transform-origin: calc(50% - 800px) calc(50% + 200px);
+  animation: moveInCircle 20s ease infinite;
+}
+
+.interactive {
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color-interactive), 0.8) 0%,
+      rgba(var(--color-interactive), 0) 50%
+    )
+    no-repeat;
+
+  mix-blend-mode: var(--blending);
+
+  width: 100%;
+  height: 100%;
+  top: -50%;
+  left: -50%;
+  opacity: 0.7;
+  filter: blur(10px);
+}
+
+/* keyframe swirl arrow */
+@keyframes shakeRight {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: 100% 50%;
+  }
+
+  10% {
+    transform: rotate(2deg);
+  }
+
+  20%,
+  40%,
+  60% {
+    transform: rotate(-4deg);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: rotate(4deg);
+  }
+
+  80% {
+    transform: rotate(-2deg);
+  }
+
+  90% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes pause {
+  0%,
+  100% {
+    opacity: 1;
+  }
+}
+
+.swirl-arrow {
+  animation: shakeRight 2s ease 0s infinite, pause 3s ease 2s infinite;
 }
