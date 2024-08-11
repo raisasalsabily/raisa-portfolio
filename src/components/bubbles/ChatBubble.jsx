@@ -5,7 +5,7 @@ const ChatBubble = ({ strings = ["Hi..!", "Keep scrolling!"] }) => {
   return (
     <div
       id="chat__bubble"
-      className="relative w-min max-w-32 py-2 px-4 rounded-full bg-white text-black text-b-xsm"
+      className="relative w-min max-w-32 lg:max-w-96 py-2 px-4 rounded-full bg-white text-black text-b-xsm lg:text-b-md"
     >
       <Typewriter
         options={{

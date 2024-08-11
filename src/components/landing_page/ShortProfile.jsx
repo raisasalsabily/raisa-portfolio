@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import GitHubIcon from "../../../public/assets/icons/github.svg";
 import LinkedinIcon from "../../../public/assets/icons/linkedin.svg";
@@ -64,10 +64,7 @@ const ShortProfile = () => {
   }, []);
 
   return (
-    <div
-      id="shortprof__container"
-      className="relative max-h-[100vh] max-w-[100vw] text-white"
-    >
+    <div id="shortprof__container" className="relative w-full min-h-screen">
       {/* background start */}
       <div
         id="shortprof__bg"
@@ -105,70 +102,82 @@ const ShortProfile = () => {
 
       <div
         id="shortprof__content"
-        className="relative z-20 bg-black bg-opacity-30 w-full h-screen"
+        className="lg:flex lg:items-center relative z-20 bg-black bg-opacity-30 w-full h-screen lg:px-32 lg:py-12"
       >
-        <div
-          id="content__container"
-          className="px-12 flex flex-col items-center"
-        >
-          <div id="profile__picture" className="pt-10 pb-8">
+        <div className="pt-24 lg:pt-0">
+          <div
+            id="profile__picture"
+            className="pt-10 pb-8 flex justify-center lg:justify-start"
+          >
             <ProfilePic>
               <ChatBubble strings={["Hi..!", "Keep scrolling!"]} />
             </ProfilePic>
           </div>
 
           <div
-            id="profile__title"
-            className="font-prozaLibre text-h-md font-bold py-2"
+            id="text__content__container"
+            className="px-12 lg:px-48 flex flex-col items-center"
           >
-            Hi, my name is <span className="color-changing-text">Raisa!</span>
+            <div
+              id="profile__title"
+              className="font-prozaLibre text-h-md lg:text-h-xl font-bold py-2"
+            >
+              Hi, my name is <span className="color-changing-text">Raisa!</span>
+            </div>
+
+            <div
+              id="profile__desc"
+              className="text-center leading-7 py-2 lg:text-h-sm"
+            >
+              An enthusiastic <b>web developer</b>, focusing on{" "}
+              <b>front-end development</b>.<br /> I can do <b>back-end</b> too
+              tho 😉 I am a fresh graduate in <b>Information Technology</b> from{" "}
+              <b>Gadjah Mada University</b>.
+            </div>
+
+            <div id="profile__social" className="py-4 flex gap-2">
+              <Image
+                src={GitHubIcon}
+                alt="Raisa's GitHub"
+                className="w-10 lg:w-12 h-10 lg:h-12"
+              />
+              <Image
+                src={LinkedinIcon}
+                alt="Raisa's LinkedIn"
+                className="w-10 lg:w-12 h-10 lg:h-12"
+              />
+              <Image
+                src={EmailIcon}
+                alt="Raisa's Email"
+                className="w-10 lg:w-12 h-10 lg:h-12"
+              />
+            </div>
           </div>
 
-          <div id="profile__desc" className="text-center leading-7 py-2">
-            An enthusiastic <b>web developer</b>, focusing on{" "}
-            <b>front-end development</b>. I can do <b>back-end</b> too tho 😉 I
-            am a fresh graduate in <b>Information Technology</b> from{" "}
-            <b>Gadjah Mada University</b>.
-          </div>
+          {/* ------- download cv start ------- */}
+          <div
+            id="download__cv"
+            className="flex gap-2 absolute bottom-20 right-10 lg:relative lg:bottom-auto lg:right-auto lg:flex-row lg:justify-end lg:gap-2"
+          >
+            <p className="flex items-center mr-2 text-right">
+              Download <br />
+              my CV
+            </p>
 
-          <div id="profile__social" className="py-4 flex gap-2">
-            <Image
-              src={GitHubIcon}
-              alt="Raisa's GitHub"
-              className="w-10 h-10"
-            />
-            <Image
-              src={LinkedinIcon}
-              alt="Raisa's LinkedIn"
-              className="w-10 h-10"
-            />
-            <Image src={EmailIcon} alt="Raisa's Email" className="w-10 h-10" />
+            <div>
+              <DownloadBtn />
+            </div>
+
+            <div className="flex items-end">
+              <Image
+                src={SwirlArrow}
+                alt="Raisa's CV"
+                className="w-[40px] h-[70px] swirl-arrow"
+              />
+            </div>
           </div>
+          {/* ------- download cv end ------- */}
         </div>
-
-        {/* ------- download cv start ------- */}
-        <div
-          id="download__cv"
-          className="absolute bottom-28 right-10 flex gap-2"
-        >
-          <p className="flex items-center mr-2 text-right">
-            Download <br />
-            my CV
-          </p>
-
-          <div>
-            <DownloadBtn />
-          </div>
-
-          <div className="flex items-end">
-            <Image
-              src={SwirlArrow}
-              alt="Raisa's CV"
-              className="w-[40px] h-[70px] swirl-arrow"
-            />
-          </div>
-        </div>
-        {/* ------- download cv end ------- */}
       </div>
     </div>
   );
