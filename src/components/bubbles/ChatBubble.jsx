@@ -1,11 +1,11 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
 
-const ChatBubble = ({ strings = ["Hi..!", "Keep scrolling!"] }) => {
+const ChatBubble = ({ strings = ["Hi..!", "Download my full portfolio!"] }) => {
   return (
     <div
       id="chat__bubble"
-      className="relative w-min max-w-32 lg:max-w-96 py-2 px-4 rounded-full bg-white text-black text-b-xsm lg:text-b-md"
+      className="relative py-2 px-4 min-w-12 max-w-96 lg:whitespace-nowrap rounded-full bg-white text-black text-b-xsm lg:text-b-md"
     >
       <Typewriter
         options={{
