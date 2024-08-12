@@ -110,7 +110,7 @@ const ShortProfile = () => {
             className="pt-10 pb-8 flex justify-center lg:justify-start"
           >
             <ProfilePic>
-              <ChatBubble strings={["Hi..!", "Keep scrolling!"]} />
+              <ChatBubble />
             </ProfilePic>
           </div>
 
@@ -180,9 +180,9 @@ const ShortProfile = () => {
             className="flex gap-2 absolute bottom-20 right-6 lg:relative lg:bottom-auto lg:right-auto lg:flex-row lg:justify-end lg:gap-2"
           >
             <p className="flex items-center mr-2 text-right lg:text-b-xl">
-              Download my
+              Download my complete
               <br />
-              full projects
+              portfolio projects
             </p>
 
             <div>
