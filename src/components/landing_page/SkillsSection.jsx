@@ -1,4 +1,6 @@
 import React from "react";
+import Image from "next/image";
+import DiamondDoodle from "/public/assets/vectors/diamond_doodle.svg";
 import TechStackItem from "../items/TechStackItem";
 import ReactJs from "/public/assets/images/tech_stacks/reactjs.svg";
 import NextJs from "/public/assets/images/tech_stacks/nextjs.svg";
@@ -96,14 +98,18 @@ const techStackData = [
 
 const SkillsSection = () => {
   return (
-    <div className="flex justify-center bg-black">
+    <div className="relative flex justify-center lg:justify-start bg-black lg:px-24">
+      <Image
+        src={DiamondDoodle}
+        className="w-[100px] lg:w-[400px] absolute right-8 lg:right-20 top-2 lg:top-36"
+      />
       <div
         id="skills__container"
-        className="w-[90%] flex flex-col items-center text-white py-8"
+        className="w-[90%] flex flex-col items-center lg:items-start text-white py-8"
       >
         <h4
           id="skills__title"
-          className="font-prozaLibre font-bold text-h-md mb-6"
+          className="mb-12 lg:mb-6 font-prozaLibre font-bold text-h-md lg:text-h-xl"
         >
           Skills
         </h4>
@@ -113,7 +119,7 @@ const SkillsSection = () => {
           {/* tech stacks start */}
           <div
             id="techstacks__container"
-            className="grid grid-cols-2 gap-y-6 gap-x-6"
+            className="grid grid-cols-2 gap-y-6 gap-x-6 lg:gap-x-28"
           >
             {techStackData?.map(({ name, img }, index) => (
               <TechStackItem key={index} text={name} img={img} />
@@ -124,7 +130,7 @@ const SkillsSection = () => {
           {/* others start */}
           <div
             id="others__container"
-            className="w-[75%] flex flex-col items-center gap-4"
+            className="w-[75%] lg:w-full flex flex-col items-center lg:items-start gap-4"
           >
             <h3 className="font-prozaLibre text-h-sm font-bold">Others</h3>
             <p className="text-center leading-10">
