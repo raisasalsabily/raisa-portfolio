@@ -6,11 +6,11 @@ const CircularBtn = ({ text = "text" }) => {
   return (
     <div
       id="circular__button"
-      className="relative w-[138px] h-[138px] hover:cursor-pointer"
+      className="relative w-[138px] h-[138px] text-center hover:cursor-pointer"
     >
       <div
         id="second__circle"
-        className="absolute top-1 -left-0.5 w-[138px] h-[144px] rounded-full border-2 border-blizblue-200 bg-transparent"
+        className="absolute top-1 -left-0.5 w-[138px] h-[144px] rounded-full border border-black bg-transparent"
       />
 
       <div
