@@ -5,9 +5,9 @@ import Marquee from "react-fast-marquee";
 import DiamondDoodle from "/public/assets/vectors/diamond_doodle.svg";
 import TechStackItem from "../items/TechStackItem";
 import ReactJs from "/public/assets/images/tech_stacks/reactjs.svg";
-import NextJs from "/public/assets/images/tech_stacks/nextjs.svg";
+import NextJs from "/public/assets/images/tech_stacks/nextjs2.svg";
 import NodeJs from "/public/assets/images/tech_stacks/nodejs.svg";
-import ExpressJs from "/public/assets/images/tech_stacks/expressjs.svg";
+import ExpressJs from "/public/assets/images/tech_stacks/expressjs2.svg";
 import TailwindCSS from "/public/assets/images/tech_stacks/tailwindcss.svg";
 import Sass from "/public/assets/images/tech_stacks/sass.svg";
 import CSS3 from "/public/assets/images/tech_stacks/css3.svg";
@@ -20,7 +20,7 @@ import PostgreSQL from "/public/assets/images/tech_stacks/postgresql.svg";
 import MySQL from "/public/assets/images/tech_stacks/mysql.svg";
 import Git from "/public/assets/images/tech_stacks/git.svg";
 import Azure from "/public/assets/images/tech_stacks/azure.svg";
-import AWS from "/public/assets/images/tech_stacks/aws.svg";
+import AWS from "/public/assets/images/tech_stacks/aws2.svg";
 import Figma from "/public/assets/images/tech_stacks/figma.svg";
 import RunningItem from "../running_text/RunningItem";
 
@@ -200,7 +200,7 @@ const SkillsSection = () => {
 
       <div id="skills__running__text">
         <Marquee
-          speed={20}
+          speed={30}
           direction="left"
           loop={0}
           gradient={false}
