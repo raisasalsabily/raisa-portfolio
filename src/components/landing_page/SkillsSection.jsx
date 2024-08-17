@@ -177,7 +177,7 @@ const SkillsSection = () => {
               className="grid grid-cols-2 gap-y-6 gap-x-6 lg:gap-x-28"
             >
               {techStackData?.map(({ name, img }, index) => (
-                <TechStackItem key={index} text={name} img={img} />
+                <TechStackItem key={index} name={name} img={img} />
               ))}
             </div>
             {/* tech stacks end */}
