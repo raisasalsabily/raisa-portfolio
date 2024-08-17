@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import ProjectCard from "../cards/ProjectCard";
+import SparkImg from "/public/assets/vectors/spark.svg";
+import CircularBtn from "../buttons/CircularBtn";
 
 const ProjectsSection = () => {
   return (
@@ -30,7 +32,23 @@ const ProjectsSection = () => {
         {/* project items end */}
 
         {/*  read more start*/}
-        <div id="read__more__projects"></div>
+        <div
+          id="read__more__projects"
+          className="flex flex-col items-center text-center px-16 py-12"
+        >
+          <p className="relative font-prozaLibre font-bold text-h-md">
+            <Image
+              src={SparkImg}
+              alt="Spark vector"
+              className="absolute -top-12 -left-12"
+            />
+            Wanna read more projects?
+          </p>
+
+          <div className="py-5">
+            <CircularBtn text="click for more projects" />
+          </div>
+        </div>
         {/*  read more end*/}
       </div>
     </div>
