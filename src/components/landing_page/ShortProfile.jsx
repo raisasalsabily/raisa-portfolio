@@ -64,7 +64,10 @@ const ShortProfile = () => {
   }, []);
 
   return (
-    <div id="shortprof__container" className="relative w-full min-h-screen">
+    <div
+      id="shortprof__container"
+      className="relative w-full min-h-screen text-white"
+    >
       {/* background start */}
       <div
         id="shortprof__bg"
