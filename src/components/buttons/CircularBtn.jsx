@@ -2,9 +2,10 @@ import React from "react";
 import Image from "next/image";
 import ClickHandImg from "/public/assets/vectors/click_hand.svg";
 
-const CircularBtn = ({ text = "text" }) => {
+const CircularBtn = ({ text = "text", onClick }) => {
   return (
-    <div
+    <button
+      onClick={onClick}
       id="circular__button"
       className="relative w-[138px] h-[138px] text-center hover:cursor-pointer"
     >
@@ -22,7 +23,7 @@ const CircularBtn = ({ text = "text" }) => {
           <p className="text-b-xsm">{text}</p>
         </div>
       </div>
-    </div>
+    </button>
   );
 };
 

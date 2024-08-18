@@ -1,10 +1,24 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import ProjectCard from "../cards/ProjectCard";
 import SparkImg from "/public/assets/vectors/spark.svg";
 import CircularBtn from "../buttons/CircularBtn";
+import ProjectsData from "../../data/projects.json";
 
 const ProjectsSection = () => {
+  const handleDownload = () => {
+    // URL path to your PDF file in the public directory
+    const pdfUrl = "/assets/docs/Raisa_Salsabil_Yusriyya_Portfolio.pdf";
+    // Create a temporary anchor element
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "Raisa_Salsabil_Yusriyya_Portfolio.pdf"; // Specify the download file name
+    document.body.appendChild(link);
+    link.click(); // Trigger the download
+    document.body.removeChild(link); // Clean up
+  };
+
   return (
     <div className="pb-16 relative flex flex-col items-center lg:items-center bg-white text-black lg:px-24">
       <div
@@ -23,11 +37,31 @@ const ProjectsSection = () => {
           id="project__items"
           className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-6 lg:gap-y-12 gap-x-6 lg:gap-x-12"
         >
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
+          {ProjectsData?.map(
+            ({
+              id,
+              title,
+              thumbnail,
+              tags,
+              contrib,
+              short_desc,
+              link,
+              github_fe,
+              github_be,
+            }) => (
+              <ProjectCard
+                key={id}
+                title={title}
+                thumbnail={thumbnail}
+                tags={tags}
+                contrib={contrib}
+                short_desc={short_desc}
+                link={link}
+                github_fe={github_fe}
+                github_be={github_be}
+              />
+            )
+          )}
         </div>
         {/* project items end */}
 
@@ -48,7 +82,10 @@ const ProjectsSection = () => {
             </p>
 
             <div className="py-5">
-              <CircularBtn text="click for more projects" />
+              <CircularBtn
+                text="click for more projects"
+                onClick={handleDownload}
+              />
             </div>
           </div>
         </div>
