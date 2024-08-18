@@ -7,7 +7,10 @@ import EmailIcon from "/public/assets/icons/email_blk.svg";
 
 const ContactSection = () => {
   return (
-    <div className="py-6 lg:py-20 mb-36 flex flex-col gap-6 lg:gap-36 items-center">
+    <div
+      id="contact__section"
+      className="py-6 lg:py-20 mb-36 flex flex-col gap-6 lg:gap-36 items-center"
+    >
       <div className="py-12 flex justify-center items-center">
         <Image src={Oval} className="absolute z-0 lg:w-[60%]" />
 
