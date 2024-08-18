@@ -1,15 +1,25 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
 import Oval from "../../../public/assets/vectors/oval_doodle.svg";
 import GitHubIcon from "/public/assets/icons/github_blk.svg";
 import LinkedinIcon from "/public/assets/icons/linkedin_blk.svg";
 import EmailIcon from "/public/assets/icons/email_blk.svg";
 
 const ContactSection = () => {
+  const { ref: refContact, inView: inViewContact } = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  });
+
   return (
     <div
       id="contact__section"
-      className="py-6 lg:py-20 mb-36 flex flex-col gap-6 lg:gap-36 items-center"
+      ref={refContact}
+      className={`py-6 lg:py-20 mb-36 flex flex-col gap-6 lg:gap-36 items-center ${
+        inViewContact ? "entrance-fade-in-bot" : "opacity-0"
+      }`}
     >
       <div className="py-12 flex justify-center items-center">
         <Image src={Oval} className="absolute z-0 lg:w-[60%]" />

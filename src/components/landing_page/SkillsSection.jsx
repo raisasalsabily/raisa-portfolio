@@ -1,6 +1,7 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
 import Marquee from "react-fast-marquee";
 import DiamondDoodle from "/public/assets/vectors/diamond_doodle.svg";
 import TechStackItem from "../items/TechStackItem";
@@ -151,6 +152,16 @@ const RunningTextData = [
 ];
 
 const SkillsSection = () => {
+  const { ref: refTitle, inView: inViewTitle } = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  });
+
+  const { ref: refOthers, inView: inViewOthers } = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  });
+
   return (
     <div id="skills__section">
       <div className="pb-16 relative flex flex-col items-center lg:items-start bg-black lg:px-24">
@@ -164,7 +175,10 @@ const SkillsSection = () => {
         >
           <h4
             id="skills__title"
-            className="mb-12 lg:mb-6 font-prozaLibre font-bold text-h-md lg:text-h-xl"
+            ref={refTitle}
+            className={`mb-12 lg:mb-6 font-prozaLibre font-bold text-h-md lg:text-h-xl ${
+              inViewTitle ? "entrance-fade-in-bot" : "opacity-0"
+            }`}
           >
             Skills
           </h4>
@@ -185,7 +199,10 @@ const SkillsSection = () => {
             {/* others start */}
             <div
               id="others__container"
-              className="w-[75%] lg:w-full flex flex-col items-center lg:items-start gap-4"
+              ref={refOthers}
+              className={`w-[75%] lg:w-full flex flex-col items-center lg:items-start gap-4 ${
+                inViewOthers ? "entrance-fade-in-bot" : "opacity-0"
+              }`}
             >
               <h3 className="font-prozaLibre text-h-sm font-bold">Others</h3>
               <p className="text-center leading-10">
