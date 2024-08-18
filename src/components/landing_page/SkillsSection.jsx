@@ -152,7 +152,7 @@ const RunningTextData = [
 
 const SkillsSection = () => {
   return (
-    <div>
+    <div id="skills__section">
       <div className="pb-16 relative flex flex-col items-center lg:items-start bg-black lg:px-24">
         <Image
           src={DiamondDoodle}

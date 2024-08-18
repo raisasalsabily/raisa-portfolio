@@ -66,7 +66,7 @@ const ShortProfile = () => {
   return (
     <div
       id="shortprof__container"
-      className="relative w-full min-h-screen text-white"
+      className="relative w-full h-screen lg:h-auto text-white"
     >
       {/* background start */}
       <div
@@ -105,12 +105,12 @@ const ShortProfile = () => {
 
       <div
         id="shortprof__content"
-        className="lg:flex lg:items-center relative z-20 bg-black bg-opacity-30 w-full h-screen lg:px-32 lg:py-12"
+        className="lg:flex lg:items-center relative z-20 bg-black bg-opacity-30 w-full h-screen lg:h-auto lg:px-32 lg:py-12"
       >
         <div className="pt-24 lg:pt-0">
           <div
             id="profile__picture"
-            className="pt-10 pb-8 flex justify-center lg:justify-start"
+            className="pt-0 pb-8 flex justify-center lg:justify-start"
           >
             <ProfilePic>
               <ChatBubble />
@@ -132,10 +132,11 @@ const ShortProfile = () => {
               id="profile__desc"
               className="text-center leading-7 py-2 lg:text-h-sm"
             >
-              An enthusiastic <b>web developer</b>, focusing on{" "}
-              <b>front-end development</b>.<br /> I can do <b>back-end</b> too
-              tho 😉 I am a fresh graduate in <b>Information Technology</b> from{" "}
-              <b>Gadjah Mada University</b>.
+              <b>Raisa Salsabil Yusriyya</b>, an enthusiastic{" "}
+              <b>web developer</b>, <br className="hidden lg:block" />
+              focusing on <b>front-end development</b>.
+              <br /> I can do <b>back-end</b> too 😉 I am a fresh graduate in{" "}
+              <b>Information Technology</b> from <b>Gadjah Mada University</b>.
             </div>
 
             <div id="profile__social" className="py-4 flex gap-2">
@@ -180,7 +181,7 @@ const ShortProfile = () => {
           {/* ------- download cv start ------- */}
           <div
             id="download__cv"
-            className="flex gap-2 absolute bottom-20 right-6 lg:relative lg:bottom-auto lg:right-auto lg:flex-row lg:justify-end lg:gap-2"
+            className="flex gap-2 absolute bottom-24 right-6 lg:relative lg:bottom-auto lg:right-auto lg:flex-row lg:justify-end lg:gap-2"
           >
             <p className="flex items-center mr-2 text-right lg:text-b-xl">
               Download my complete

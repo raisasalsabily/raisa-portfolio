@@ -27,6 +27,7 @@ module.exports = {
       fontFamily: {
         prozaLibre: ["Proza Libre", "sans-serif"],
         sourceCodePro: ["Source Code Pro", "monospace"],
+        pacifico: ["Pacifico", "sans-serif"],
       },
 
       colors: {

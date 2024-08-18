@@ -20,7 +20,10 @@ const ProjectsSection = () => {
   };
 
   return (
-    <div className="pb-16 relative flex flex-col items-center lg:items-center bg-white text-black lg:px-24">
+    <div
+      id="projects__section"
+      className="pb-16 relative flex flex-col items-center lg:items-center bg-white text-black lg:px-24"
+    >
       <div
         id="projects__container"
         className="w-[90%] flex flex-col items-center lg:items-start py-8"
