@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "title": "PDDikti v2 Web",
+    "thumbnail": "/assets/images/pddikti_thumb.png",
+    "tags": ["PDDikti", "Front-End", "Kampus Merdeka"],
+    "contrib": "React.js and TailwindCSS",
+    "short_desc": "PDDikti is a collection of higher education implementation data from all universities that have been integrated nationally. The PDDikti web can be used to check data on higher education related things.",
+    "link": "https://pddikti.kemdikbud.go.id/"
+  },
+  {
+    "id": 2,
+    "title": "Andal Web App",
+    "thumbnail": "/assets/images/andal_thumb.png",
+    "tags": ["GPS", "Geofencing", "Context-Based Computing", "Front-End"],
+    "contrib": "React.js, TailwindCSS, Google Maps API",
+    "short_desc": "Andal web is a child safety application that can monitor the location of children using geofencing and context-aware computing. If the child goes outside the boundaries determined by the parent, a notification will be sent.",
+    "link": "https://andal-app.vercel.app/",
+    "github_fe": "https://github.com/Andal-app/andal-fe"
+  },
+  {
+    "id": 3,
+    "title": "IoT-Based Monitoring and Automation System Web",
+    "thumbnail": "/assets/images/kandangkoo_thumb.jpg",
+    "tags": ["IoT", "Monitoring", "Smart Farm", "ESP32"],
+    "contrib": "React.js, Express.js, Node.js, MongoDB,TailwindCSS, ArduinoIDE",
+    "short_desc": "This is a web app for an IoT based Monitoring and Automation System for Integrated Laying Hens Cage Environment. This project was build to accomplish my Capstone Project. Capstone project is a final college project that lasts 1 year. The result of this project is an engineering product related to electrical and information engineering.",
+    "link": "https://kandangkoo.vercel.app/",
+    "github_fe": "https://github.com/raisasalsabily/capstonefe",
+    "github_be": "https://github.com/raisasalsabily/capstonebe"
+  },
+  {
+    "id": 4,
+    "title": "Jogja Smart Service (JSS) - Frequently Asked Questions (FAQ) Page",
+    "thumbnail": "/assets/images/jss_thumbnail.png",
+    "tags": ["FAQ", "Front-End", "Back-End", "Fuzzy Search"],
+    "contrib": "React.js, Express.js, Node.js, MongoDB, and TailwindCSS",
+    "short_desc": "Internship project at Dinas Komunikasi Informatika dan Persandian Kota Yogyakarta. Developed the FAQ service on the Jogja Smart Service web application using MERN stack. Responsible for front-end, back-end, and database configuration. Worked in a team of three.",
+    "link": "",
+    "github_fe": "https://github.com/raisasalsabily/jss-faq-fe",
+    "github_be": "https://github.com/ipungsonia/jss-faq-be"
+  }
+]

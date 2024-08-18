@@ -9,6 +9,7 @@ module.exports = {
       poppins: ["Poppins", "serif"],
     },
     fontSize: {
+      "h-2xl": ["4rem", "6rem"], // 64px
       "h-xl": ["3rem", "4.5rem"], // 48px
       "h-lg": ["2rem", "3rem"], // 32px
       "h-md": ["1.5rem", "2.25rem"], // 24px
