@@ -7,11 +7,11 @@ const CircularBtn = ({ text = "text", onClick }) => {
     <button
       onClick={onClick}
       id="circular__button"
-      className="relative w-[138px] h-[138px] text-center hover:cursor-pointer"
+      className="circular__button relative w-[138px] h-[138px] text-center hover:cursor-pointer"
     >
       <div
         id="second__circle"
-        className="absolute top-1 -left-0.5 w-[138px] h-[144px] rounded-full border border-black bg-transparent"
+        className="second__circle absolute top-1 -left-0.5 w-[138px] h-[144px] rounded-full border border-black bg-transparent pulse-regular"
       />
 
       <div

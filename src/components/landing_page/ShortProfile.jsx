@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
 import GitHubIcon from "../../../public/assets/icons/github.svg";
 import LinkedinIcon from "../../../public/assets/icons/linkedin.svg";
 import EmailIcon from "../../../public/assets/icons/email.svg";
@@ -63,6 +64,11 @@ const ShortProfile = () => {
     };
   }, []);
 
+  const { ref: refTitle, inView: inViewTitle } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <div
       id="shortprof__container"
@@ -110,7 +116,10 @@ const ShortProfile = () => {
         <div className="pt-24 lg:pt-0">
           <div
             id="profile__picture"
-            className="pt-0 pb-8 flex justify-center lg:justify-start"
+            ref={refTitle}
+            className={`pt-0 pb-8 flex justify-center lg:justify-start ${
+              inViewTitle ? "entrance-bounce-in-left" : "opacity-0"
+            }`}
           >
             <ProfilePic>
               <ChatBubble />
@@ -123,14 +132,20 @@ const ShortProfile = () => {
           >
             <div
               id="profile__title"
-              className="font-prozaLibre text-h-md lg:text-h-xl font-bold py-2"
+              ref={refTitle}
+              className={`font-prozaLibre text-h-md lg:text-h-xl font-bold py-2 ${
+                inViewTitle ? "entrance-fade-in-bot" : "opacity-0"
+              }`}
             >
               Hi, my name is <span className="color-changing-text">Raisa!</span>
             </div>
 
             <div
               id="profile__desc"
-              className="text-center leading-7 py-2 lg:text-h-sm"
+              ref={refTitle}
+              className={`text-center leading-7 py-2 lg:text-h-sm ${
+                inViewTitle ? "entrance-fade-in-bot delay-03" : "opacity-0"
+              }`}
             >
               <b>Raisa Salsabil Yusriyya</b>, an enthusiastic{" "}
               <b>web developer</b>, <br className="hidden lg:block" />
@@ -139,7 +154,13 @@ const ShortProfile = () => {
               <b>Information Technology</b> from <b>Gadjah Mada University</b>.
             </div>
 
-            <div id="profile__social" className="py-4 flex gap-2">
+            <div
+              id="profile__social"
+              ref={refTitle}
+              className={`py-4 flex gap-2 ${
+                inViewTitle ? "entrance-fade-in-left delay-03" : "opacity-0"
+              }`}
+            >
               <a
                 href="https://github.com/raisasalsabily"
                 target="_blank"
@@ -181,7 +202,10 @@ const ShortProfile = () => {
           {/* ------- download cv start ------- */}
           <div
             id="download__cv"
-            className="flex gap-2 absolute bottom-24 right-6 lg:relative lg:bottom-auto lg:right-auto lg:flex-row lg:justify-end lg:gap-2"
+            ref={refTitle}
+            className={`flex gap-2 absolute bottom-24 right-6 lg:relative lg:bottom-auto lg:right-auto lg:flex-row lg:justify-end lg:gap-2 ${
+              inViewTitle ? "entrance-bounce-in-right" : "opacity-0"
+            }`}
           >
             <p className="flex items-center mr-2 text-right lg:text-b-xl">
               Download my complete

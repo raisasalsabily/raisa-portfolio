@@ -157,6 +157,11 @@ const SkillsSection = () => {
     threshold: 0.1,
   });
 
+  const { ref: refDiamond, inView: inViewDiamond } = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  });
+
   const { ref: refOthers, inView: inViewOthers } = useInView({
     triggerOnce: false,
     threshold: 0.1,
@@ -167,7 +172,10 @@ const SkillsSection = () => {
       <div className="pb-16 relative flex flex-col items-center lg:items-start bg-black lg:px-24">
         <Image
           src={DiamondDoodle}
-          className="w-[100px] lg:w-[400px] absolute right-8 lg:right-20 top-2 lg:top-36"
+          ref={refDiamond}
+          className={`w-[100px] lg:w-[400px] absolute right-8 lg:right-20 top-2 lg:top-36 ${
+            inViewTitle ? "entrance-fade-in-center delay-05" : "opacity-0"
+          }`}
         />
         <div
           id="skills__container"
@@ -184,7 +192,10 @@ const SkillsSection = () => {
           </h4>
 
           {/* items start */}
-          <div id="skills__items" className="flex flex-col items-center gap-10">
+          <div
+            id="skills__items"
+            claspsName="flex flex-col items-center gap-10"
+          >
             {/* tech stacks start */}
             <div
               id="techstacks__container"
@@ -200,13 +211,14 @@ const SkillsSection = () => {
             <div
               id="others__container"
               ref={refOthers}
-              className={`w-[75%] lg:w-full flex flex-col items-center lg:items-start gap-4 ${
+              className={`mt-10 w-full flex flex-col items-center lg:items-start gap-4 ${
                 inViewOthers ? "entrance-fade-in-bot" : "opacity-0"
               }`}
             >
               <h3 className="font-prozaLibre text-h-sm font-bold">Others</h3>
               <p className="text-center leading-10">
-                Microsoft Word, Excel, and Power Point
+                Microsoft Word, Excel, <br className="block lg:hidden" /> and
+                Power Point
               </p>
             </div>
             {/* others end */}
