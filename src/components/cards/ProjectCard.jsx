@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import ProjectImage from "/public/assets/images/project_image.jpg";
-import PDDiktiImg from "/public/assets/images/pddikti_thumb.png";
+import { useInView } from "react-intersection-observer";
 import Tag from "../tags/Tag";
 import GitHubBtn from "../buttons/GitHubBtn";
 import RightSlantBtn from "../buttons/RightSlantBtn";
@@ -16,8 +15,19 @@ const ProjectCard = ({
   github_fe,
   github_be,
 }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  });
+
   return (
-    <div id="project__item" className="w-full flex flex-col gap-4">
+    <div
+      id="project__item"
+      ref={ref}
+      className={`w-full flex flex-col gap-4 ${
+        inView ? "entrance-fade-in-bot" : "opacity-0"
+      }`}
+    >
       <div className="relative w-full group">
         <div className="w-full h-[280px]">
           <Image

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
 import ProjectCard from "../cards/ProjectCard";
 import SparkImg from "/public/assets/vectors/spark.svg";
 import CircularBtn from "../buttons/CircularBtn";
@@ -19,6 +20,16 @@ const ProjectsSection = () => {
     document.body.removeChild(link); // Clean up
   };
 
+  const { ref: refTitle, inView: inViewTitle } = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  });
+
+  const { ref: refReadMore, inView: inViewReadMore } = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  });
+
   return (
     <div
       id="projects__section"
@@ -30,7 +41,10 @@ const ProjectsSection = () => {
       >
         <h4
           id="projects__title"
-          className="mt-4 mb-12 font-prozaLibre font-bold text-h-md lg:text-h-xl"
+          ref={refTitle}
+          className={`mt-4 mb-12 font-prozaLibre font-bold text-h-md lg:text-h-xl  ${
+            inViewTitle ? "entrance-fade-in-bot" : "opacity-0"
+          }`}
         >
           Projects
         </h4>
@@ -72,9 +86,14 @@ const ProjectsSection = () => {
         <div className="w-full flex justify-center px-16 py-16 lg:py-24">
           <div
             id="read__more__projects"
-            className="w-full lg:w-[80%] flex flex-col lg:flex-row items-center lg:justify-center lg:gap-x-32"
+            ref={refReadMore}
+            className={`w-full lg:w-[80%] flex flex-col lg:flex-row items-center lg:justify-center lg:gap-x-32 ${
+              inViewReadMore ? "entrance-fade-in-bot" : "opacity-0"
+            }`}
           >
-            <p className="relative font-prozaLibre font-bold text-h-md lg:text-h-xl text-center lg:text-start">
+            <p
+              className={`relative font-prozaLibre font-bold text-h-md lg:text-h-xl text-center lg:text-start`}
+            >
               <Image
                 src={SparkImg}
                 alt="Spark vector"
